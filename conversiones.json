@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "origen": "USD",
+    "destino": "COP",
+    "tasaConversion": 4232.2537,
+    "valorConvertido": 846450.74,
+    "cantidad": 200.0
+  }
+]

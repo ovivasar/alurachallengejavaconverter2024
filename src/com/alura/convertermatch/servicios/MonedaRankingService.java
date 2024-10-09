@@ -1,5 +1,5 @@
 package com.alura.convertermatch.servicios;
-
+import com.alura.convertermatch.configuracion.ApiTokens;
 import com.alura.convertermatch.http.HttpClientWrapper;
 import com.google.gson.Gson;
 
@@ -24,7 +24,8 @@ public class MonedaRankingService {
 
         //Almacenamos valores para comparacion posterior
         for (String moneda : monedasLatinas) {
-            String url = "https://v6.exchangerate-api.com/v6/90402e5b8982702b2c526d61/pair/" + moneda + "/USD";
+            //String url = "https://v6.exchangerate-api.com/v6/90402e5b8982702b2c526d61/pair/" + moneda + "/USD";
+            String url = "https://v6.exchangerate-api.com/v6/" + ApiTokens.TOKENS.exchangeRateToken() + "/pair/USD";
             String jsonResponse = httpClientWrapper.get(url);
             Map<String, Object> jsonObject = gson.fromJson(jsonResponse, Map.class);
             double tasaConversion = (double) jsonObject.get("conversion_rate");

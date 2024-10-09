@@ -1,5 +1,6 @@
 package com.alura.convertermatch.servicios;
 
+import com.alura.convertermatch.configuracion.ApiTokens;
 import com.alura.convertermatch.modelos.MonedaConversion;
 import com.alura.convertermatch.http.HttpClientWrapper;
 import com.google.gson.JsonObject;
@@ -15,7 +16,8 @@ public class ConversionService {
     }
 
     public MonedaConversion convertirMoneda(String origen, String destino, double cantidad) {
-        String url = "https://v6.exchangerate-api.com/v6/90402e5b8982702b2c526d61/pair/" + origen + "/" + destino;
+        String url = "https://v6.exchangerate-api.com/v6/" + ApiTokens.TOKENS.exchangeRateToken() + "/pair/" + origen + "/" + destino;
+        //String url = "https://v6.exchangerate-api.com/v6/90402e5b8982702b2c526d61/pair/" + origen + "/" + destino;
         String jsonResponse = httpClientWrapper.get(url);
 
         // Manejo de excepciones en la conversión de la respuesta JSON
