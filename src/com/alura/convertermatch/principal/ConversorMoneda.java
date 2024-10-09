@@ -39,7 +39,7 @@ public class ConversorMoneda {
 
             String origen = "";
             String destino = "";
-
+            //Seleccion de monedas
             switch (opcion) {
                 case 1:
                     origen = "USD";
